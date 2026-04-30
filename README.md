@@ -90,7 +90,7 @@ eco-bici-data-analysis/
 
 ### ▶️ Opción 1 — Google Colab (recomendado)
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](PONER_LINK_ACÁ)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davidpalacio1/eco-bici-data-analysis/blob/main/analisis_ecobici.ipynb)
 
 ---
 
