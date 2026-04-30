@@ -47,3 +47,8 @@ execute:
   warning: false
   message: false
   freeze: auto
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
