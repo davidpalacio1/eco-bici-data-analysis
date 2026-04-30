@@ -1,0 +1,354 @@
+/*-- FUENTES --*/
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/*-- VARIABLES --*/
+$primary:      #1a6b4a;
+$accent:       #2ecc8a;
+$bg:           #f9f7f4;
+$text:         #1c1c1c;
+$muted:        #6b7280;
+$border:       #e2ded8;
+$card-bg:      #ffffff;
+
+/*-- BASE --*/
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  background-color: $bg;
+  color: $text;
+  line-height: 1.75;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'DM Serif Display', serif;
+  color: $primary;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 2.6rem; }
+h2 { font-size: 1.8rem; border-bottom: 2px solid $border; padding-bottom: 0.4rem; margin-top: 2.5rem; }
+h3 { font-size: 1.3rem; color: darken($primary, 5%); }
+
+a {
+  color: $primary;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+  &:hover { border-bottom-color: $accent; }
+}
+
+p { margin-bottom: 1.1rem; }
+
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88em;
+}
+
+/*-- NAVBAR --*/
+.navbar {
+  background-color: $card-bg !important;
+  border-bottom: 1px solid $border;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  padding: 0.9rem 1.5rem;
+
+  .navbar-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    color: $primary !important;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: $muted !important;
+    padding: 0.3rem 0.8rem !important;
+    border-radius: 6px;
+    transition: all 0.2s;
+    &:hover, &.active {
+      color: $primary !important;
+      background: lighten($accent, 35%);
+    }
+  }
+}
+
+/*-- HERO (index) --*/
+.hero {
+  padding: 5rem 0 4rem;
+  text-align: center;
+
+  .hero-tag {
+    display: inline-block;
+    background: lighten($accent, 30%);
+    color: $primary;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 1.2rem;
+  }
+
+  h1 {
+    font-size: 3.2rem;
+    line-height: 1.15;
+    color: $text;
+    margin-bottom: 1rem;
+    span { color: $primary; }
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: $muted;
+    max-width: 540px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    a {
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      border: none;
+
+      &.btn-primary {
+        background: $primary;
+        color: white;
+        &:hover { background: darken($primary, 8%); transform: translateY(-1px); }
+      }
+      &.btn-outline {
+        border: 1.5px solid $border;
+        color: $text;
+        background: transparent;
+        &:hover { border-color: $primary; color: $primary; }
+      }
+    }
+  }
+}
+
+/*-- CARDS de proyectos --*/
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.project-card {
+  background: $card-bg;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 1.8rem;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: $accent;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-color: lighten($accent, 20%);
+    &::before { opacity: 1; }
+  }
+
+  .card-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $primary;
+    margin-bottom: 0.7rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin: 0 0 0.7rem;
+    color: $text;
+  }
+
+  p {
+    font-size: 0.92rem;
+    color: $muted;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .card-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.3rem;
+
+    span {
+      font-size: 0.72rem;
+      font-weight: 500;
+      background: $bg;
+      color: $muted;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid $border;
+    }
+  }
+
+  .card-link {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: $primary;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border: none;
+    &:hover { gap: 0.5rem; }
+  }
+}
+
+/*-- STATS row (index) --*/
+.stats-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+  padding: 2rem;
+  background: $card-bg;
+  border: 1px solid $border;
+  border-radius: 12px;
+
+  .stat {
+    text-align: center;
+    .num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: $primary;
+      display: block;
+    }
+    .label {
+      font-size: 0.8rem;
+      color: $muted;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+  }
+}
+
+/*-- CALLOUT personalizado --*/
+.callout {
+  border-left: 4px solid $accent;
+  background: lighten($accent, 38%);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.3rem;
+  margin: 1.5rem 0;
+
+  .callout-title { font-weight: 600; color: $primary; margin-bottom: 0.3rem; }
+  p { color: darken($primary, 5%); font-size: 0.95rem; margin: 0; }
+}
+
+/*-- HALLAZGOS (results boxes) --*/
+.result-box {
+  background: $card-bg;
+  border: 1px solid $border;
+  border-radius: 10px;
+  padding: 1.4rem 1.6rem;
+  margin: 1.2rem 0;
+  position: relative;
+
+  .result-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    color: $primary;
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .result-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $muted;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+  p { font-size: 0.92rem; color: $muted; margin: 0.5rem 0 0; }
+}
+
+/*-- TOC --*/
+#TOC {
+  border-left: 2px solid $border;
+  padding-left: 1rem;
+  font-size: 0.88rem;
+
+  .nav-link {
+    color: $muted;
+    padding: 0.15rem 0;
+    &:hover, &.active { color: $primary; }
+  }
+}
+
+/*-- FOOTER --*/
+.nav-footer {
+  border-top: 1px solid $border;
+  padding: 1.5rem 0;
+  font-size: 0.85rem;
+  color: $muted;
+}
+
+/*-- CÓDIGO --*/
+.sourceCode {
+  border-radius: 8px;
+  border: 1px solid $border;
+}
+
+div.cell-output-stdout pre {
+  background: #f4f3f0;
+  border: 1px solid $border;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  padding: 0.8rem 1rem;
+}
+
+/*-- TABLAS --*/
+.dataframe, table {
+  font-size: 0.88rem;
+  border-collapse: collapse;
+  width: 100%;
+
+  th {
+    background: $bg;
+    color: $primary;
+    font-weight: 600;
+    border-bottom: 2px solid $border;
+    padding: 0.6rem 1rem;
+    text-align: left;
+  }
+
+  td {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid $border;
+  }
+
+  tr:hover td { background: lighten($accent, 40%); }
+}
+
+/*-- MOBILE --*/
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+  .project-grid { grid-template-columns: 1fr; }
+  .stats-row { gap: 1.2rem; }
+}
