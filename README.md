@@ -121,8 +121,3 @@ jupyter notebook analisis_ecobici.ipynb
 [LinkedIn](https://www.linkedin.com/in/davidpalacio-velasquez-3864b6298) · davidpalacio1@gmail.com
 Estudiante de Ciencias de Datos y Matemáticas — UBA
 
----
-
-## 📄 Licencia
-
-Uso académico — datos públicos.
